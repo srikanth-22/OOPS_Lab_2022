@@ -15,7 +15,7 @@ class Construct                   //Creating a class;
 
 };
  
-int main()
+int main()                         //Main code;
 {
     Construct A;                   //Creating class object which initiliazes default constructor;
 }
