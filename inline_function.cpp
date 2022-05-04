@@ -6,7 +6,7 @@ using namespace std;
 
  inline int add(int x, int y)   // Implementing inline function;
  {
-     return(x+y);
+     return(x+y);               // Returning sum;
  }
  int main()                       // Main code;
  { 

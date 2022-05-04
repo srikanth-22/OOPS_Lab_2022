@@ -1,68 +1,92 @@
-#include <iostream>
+//class_string.cpp (lab-6);
+//Class String: Progra to create class String to store, add, equtate and output strings;
+
+#include<iostream>
 using namespace std;
-class String
+const int str=30;
+
+class STRING
 {
 private:
-    char str[100];
-    int size;
-
+    char A[str];
 public:
-    void storestring(char *A, int n)
-    {
-        for (int i = 0; i < n; i++)
-        {
-            cin >> A[i];
-            str[i] = A[i];
-        }
-        /* for(int j=0;j<=n;j++){
-             store[j] =A[j];
-         } */
-        cout <<"string store sucessfully;"<<str<<endl;
+    STRING()                            //Default constructor;
+	{
+       
     }
-    void addstring(char *B, int n)
-    {
-        int count = 0;
-        for (int j = 0; j<n; j++)
-        {
-            cin >> B[j];
-        }
-        while (str[count] != '\0')
-        {
-            size = count++;
-        }
-        for (int i = 0; i < sizeof(B); i++)
-        {
-            str[size+i+1] = B[ i ];
-        }
 
-        cout << "Adding two strings: "<<str<<endl;
+    void getString()                    //Function to store string;
+	{
+        cout<<"Enter a String to store: ";
+        cin.getline(A,str);
     }
-    void equate(char *a, char *b)
-    {
-        if (a == b)
-        {
-            cout <<"Yes they are equal;"<< endl;
+
+    void displayString()                //Function to display string;
+	{
+        cout<<"Stored string is: "<<A<<endl;
+    }
+
+    int length()                        //Function to get string length;
+	{
+        int i=0;
+        for(i=0;A[i]!='\0';i++);
+        return i;
+    }
+
+    bool equateString(STRING &B)        //Function to equate strings;
+	{
+        int i=0;
+        for(i=0;A[i]!='\0';i++){
+            if(B.A[i]!=A[i]){
+                return false;
+            }
         }
-        else
-        {
-            cout <<"No they are not equal;";
+        return true;
+    }
+
+    void addString(STRING &B)            //Function to add strings;
+	{
+        STRING temp;
+        int i=0;
+        cout<<"Concatenated String is: ";
+        for(i=0;A[i]!='\0';i++)
+		{
+            temp.A[i]=A[i];
+            cout<<temp.A[i];
+        }
+        for(int j=0;j<B.length();j++)
+		{
+            temp.A[j]=B.A[j];
+            cout<<temp.A[j];
         }
     }
+
 };
-int main()
-{
-    char b[100];
-    char c[100];
-    int n;
-    String A;
-    cout <<"Size of string: "<< endl;
-    cin >> n;
-    cout <<"Enter the string: "<<endl;
-    A.storestring(b, n);
-    cout <<"Enter the second string you want to add: "<<endl;
-    A.addstring(c, n);
-    A.equate(b, c);
 
-    // a1.print();
+int main()                              //Main code;
+{
+    STRING string1,string2;
+
+    string1.getString();                //storing first string;
+    string1.displayString();            //calling displayString function;
+
+    cout<<" "<<endl;
+
+    string2.getString();               //storing second string;
+    string2.displayString();           //displays second string;
+    cout<<" "<<endl;
+
+    if(string1.equateString(string2))  //comparing both strings;
+	{
+        cout<<"Given strings are equal !!"<<endl;
+    }else{
+        cout<<"Given strings are not equal !!"<<endl;
+    }
+
+    cout<<" "<<endl;
+
+    string1.addString(string2);        //Adding the strings;
+    cout<<endl;
+
     return 0;
 }

@@ -1,33 +1,33 @@
-// function_overloading.cpp (lab-3);
+// function_overloading.cpp (lab-4);
 // Function Overloading: Program to show the effect of default arguments using function overloadong;
 
 #include <iostream>
 using namespace std;
 
-class Add
+class Add                               // Creating a class "Add";
 {
      private:
      int x,y;
 
      public:
-     int addnum(int x,int y)
+     int sqrnum(int x,int y)           // Function to add two variables;
      {
-        return (x+y); 
+        return (x*y); 
      }
-     int addnum(int x)
+     int sqrnum(int y)               
      {
-         y=2;
-	    return (x+y);
+         y=2;                          // Declaring a default argument;
+	    return (y*y);
      }
  };
 
 int main()
 {
-    int sum1,sum2;
+    int sqr1,sqr2;
     Add Q;
-    sum1= Q.addnum(3,4);
-    cout<<"The result of 'addnum' function with 2 variables as input is: "<<sum1<<endl;
-    sum2= Q.addnum(2);
-    cout<<"The result of  'addnum' function with 3 variables as input is: "<<sum2<<endl;
+    sqr1= Q.sqrnum(3,3);               // Calling function;
+    cout<<"The result of 'addnum' function with 2 variables as input is: "<<sqr1<<endl;
+    sqr2= Q.sqrnum(2);                 // Calling function with default argument;
+    cout<<"The result of  'addnum' function with default argument as input is: "<<sqr2<<endl;
     return 0;
 }
